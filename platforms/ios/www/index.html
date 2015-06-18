@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+
+            <div class="event listening button" onclick="showConversation();">Show Conversation</div>
+            <div class="event listening button" onclick="showFAQs();">Show FAQs</div>
+            <div class="event listening button" onclick="showFAQSection();">Show FAQ Section</div>
+            <div class="event listening button" onclick="showSingleFAQ();">Show Single FAQ</div>
+            <div class="event listening button" onclick="setNameAndEmail();">Set Name &amp; Email</div>
+            <div class="event listening button" onclick="leaveBreadCrumb();">Leave Breadcrumb</div>
+            <div class="event listening button" onclick="clearBreadCrumbs();">Clear Breadcrumbs</div>
+            <div class="event listening button" onclick="showAlertToRateAppWithURL();">Alert to Rate App</div>
+            <div class="event listening button" onclick="pauseDisplayOfInAppNotification(true);">Pause Notifications</div>
+            <div class="event listening button" onclick="pauseDisplayOfInAppNotification(false);">Unpause Notifications</div>
+            <div class="event listening button" onclick="getNotificationCountFromRemote();">Get Notification Count</div>
+            <div class="event listening button" onclick="handleRemoteNotification();">Remote Notification</div>
+            <div class="event listening button" onclick="handleLocalNotification();">Local Notification</div>
+
+        </div>
+        <div id="fb-root"></div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/cordova-helpshift.js"></script>
+        <script type="text/javascript">
+
+            var alertResponseFunc = function (response) { alert(JSON.stringify(response)) };
+
+            var API_KEY = 'YOUR_IOS_APP_KEY';
+            var DOMAIN_NAME = 'YOUR_APP_DOMAIN';
+            var APP_ID = 'YOUR_IOS_APP_ID';
+            var DEVICE_TOKEN = '';
+            var SECTION_PUBLISH_ID = '';
+            var FAQ_PUBLISH_ID = '';
+            var ISSUE_ID = '';
+
+            HelpshiftPlugin.init( API_KEY, DOMAIN_NAME, APP_ID, {} );
+            HelpshiftPlugin.registerDeviceToken( DEVICE_TOKEN );
+            HelpshiftPlugin.setUserIdentifier( 'user-id-100' );
+
+        </script>
+        <script type="text/javascript">
+
+            var showConversation = function () {
+                HelpshiftPlugin.showConversation( {
+                    'gotoConversationAfterContactUs': 'NO'
+                });
+            };
+
+            var showFAQs = function () {
+                HelpshiftPlugin.showFAQs( {
+                    'gotoConversationAfterContactUs': 'NO',
+                    'enableContactUs': 'ALWAYS',
+                    'presentFullScreenOniPad' : 'YES'
+                });
+            };
+
+            var showFAQSection = function () {
+                HelpshiftPlugin.showFAQSection( SECTION_PUBLISH_ID, {
+                    'gotoConversationAfterContactUs': 'NO',
+                    'enableContactUs': 'ALWAYS',
+                    'presentFullScreenOniPad' : 'YES'
+                });
+            };
+
+            var showSingleFAQ = function () {
+                HelpshiftPlugin.showSingleFAQ( FAQ_PUBLISH_ID, {
+                    'gotoconversationaftercontactus': 'NO',
+                    'enableContactUs': 'ALWAYS',
+                    'presentFullScreenOniPad' : 'YES'
+                });
+            };
+
+            var setNameAndEmail = function () {
+                HelpshiftPlugin.setNameAndEmail( 'John', 'john@example.com' );
+            };
+
+            var leaveBreadCrumb = function () {
+                HelpshiftPlugin.leaveBreadCrumb( 'relevant debugging information' );
+            };
+
+            var clearBreadCrumbs = function () {
+                HelpshiftPlugin.clearBreadCrumbs();
+            };
+
+            var showAlertToRateAppWithURL = function () {
+                HelpshiftPlugin.showAlertToRateAppWithURL( 'itms-apps://itunes.apple.com/app/id460171653' );
+            };
+
+            var pauseDisplayOfInAppNotification = function (pauseInApp) {
+                HelpshiftPlugin.pauseDisplayOfInAppNotification( pauseInApp );
+            };
+
+            var registerNotificationCallback = function (callback) {
+                HelpshiftPlugin.registerNotificationCallback( callback || alertResponseFunc );
+            };
+
+            var registerInAppNotificationCallback = function (callback) {
+                HelpshiftPlugin.registerInAppNotificationCallback( callback || alertResponseFunc);
+            };
+
+            var registerSessionEndedCallback = function (callback) {
+                HelpshiftPlugin.registerSessionEndedCallback( callback || alertResponseFunc);
+            };
+
+            var registerAlertToRateAppCallback = function (callback) {
+                HelpshiftPlugin.registerAlertToRateAppCallback( callback || alertResponseFunc);
+            };
+
+            var getNotificationCountFromRemote = function () {
+                var isAsync = true;
+                HelpshiftPlugin.getNotificationCountFromRemote( isAsync );
+            };
+
+            var handleRemoteNotification = function () {
+                HelpshiftPlugin.handleRemoteNotification( {
+                    'key1': 'value 1',
+                    'key2': 'value 2'
+                });
+            };
+
+            var handleLocalNotification = function () {
+                HelpshiftPlugin.handleLocalNotification( ISSUE_ID );
+            };
+
+        </script>
+    </body>
+</html>
