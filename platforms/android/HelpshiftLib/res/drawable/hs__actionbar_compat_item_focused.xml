@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="#ef7000" />
+</shape>
+<!-- From: file:/Users/rhishikeshjoshi/workspace/android/r2d2/HelpshiftLib/res/drawable/hs__actionbar_compat_item_focused.xml -->
