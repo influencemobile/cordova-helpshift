@@ -12,10 +12,18 @@ Cordova plugin API for fully automated installation.
 
 Run the init method when starting up your app:
 
-	HelpshiftPlugin.init ("<APP_ID>", "<DOMAIN_NAME>", "<API_KEY>", <config-object>);
+	HelpshiftPlugin.init("<APP_ID>", "<DOMAIN_NAME>", "<API_KEY>");
 
 More documentation here:<br>
-https://developers.helpshift.com/phonegap/getting-started-ios/#metadata
+https://developers.helpshift.com/phonegap/getting-started-ios/#metadata<br>
+https://developers.helpshift.com/ios/getting-started/<br>
+https://developers.helpshift.com/android/getting-started/
+
+## TODO
+
+* Should Android activities use singleTop mode?
+* Test config flags (https://developers.helpshift.com/android/sdk-configuration/#config-summary)
+* Help users setup notifications
 
 ## FAQ
 
