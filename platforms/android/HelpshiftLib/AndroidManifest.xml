@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.helpshift.cordova"
+    package="com.helpshift"
     android:versionCode="1"
     android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="19" />
-
     <application>
         <activity
             android:name="com.helpshift.HSConversation"
             android:configChanges="orientation|screenSize|locale|layoutDirection"
-            android:label="@string/hs__conversation_header"
-            android:theme="@style/Theme.Helpshift" />
+            android:theme="@style/Helpshift.Theme.Activity" />
         <activity
             android:name="com.helpshift.HSQuestionsList"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.Helpshift" />
+            android:theme="@style/Helpshift.Theme.Activity" />
         <activity
             android:name="com.helpshift.HSQuestion"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
-            android:label="@string/hs__question_header"
-            android:theme="@style/Theme.Helpshift" />
+            android:theme="@style/Helpshift.Theme.Activity" />
         <activity
             android:name="com.helpshift.HSSection"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
-            android:theme="@style/Theme.Helpshift"
+            android:theme="@style/Helpshift.Theme.Activity"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.helpshift.HSFaqs"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
-            android:label="@string/hs__help_header"
-            android:theme="@style/Theme.Helpshift"
+            android:theme="@style/Helpshift.Theme.Activity"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.helpshift.HSReview"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.Helpshift.Translucent" />
+            android:theme="@style/Helpshift.Theme.Dialog" />
         <activity
             android:name="com.helpshift.ScreenshotPreviewActivity"
-            android:theme="@style/Theme.Helpshift" />
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Helpshift.Theme.Activity" />
+        <activity
+            android:name="com.helpshift.SearchResultActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Helpshift.Theme.Activity" />
 
         <service
             android:name="com.helpshift.HSService"

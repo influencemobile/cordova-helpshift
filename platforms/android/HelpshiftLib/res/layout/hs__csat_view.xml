@@ -13,6 +13,7 @@
     />
 
   <RatingBar
+    android:contentDescription="@string/hs__csat_ratingbar"
     android:id="@+id/ratingBar"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -71,4 +72,4 @@
       android:layout_marginLeft="3dp"
       />
   </RelativeLayout>
-</merge><!-- From: file:/Users/rhishikeshjoshi/workspace/android/r2d2/HelpshiftLib/res/layout/hs__csat_view.xml -->
+</merge><!-- From: file:/Users/danielvictor/work/android/r2d2/Helpshift/src/main/res/layout/hs__csat_view.xml -->

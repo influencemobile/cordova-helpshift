@@ -36,9 +36,10 @@
         >
 
       <LinearLayout
+          android:id="@+id/user_message"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:background="@drawable/hs__chat_bubble_user"
+          android:background="?attr/hs__chatBubbleUserBackground"
           >
 
         <ProgressBar
@@ -63,4 +64,4 @@
     </LinearLayout>
   </LinearLayout>
 </LinearLayout>
-<!-- From: file:/Users/rhishikeshjoshi/workspace/android/r2d2/HelpshiftLib/res/layout/hs__msg_screenshot_status.xml -->
+<!-- From: file:/Users/danielvictor/work/android/r2d2/Helpshift/src/main/res/layout/hs__msg_screenshot_status.xml -->

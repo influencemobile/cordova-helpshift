@@ -22,7 +22,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_alignParentBottom="true">
+    android:splitMotionEvents="false"
+    android:layout_above="@+id/hs__helpshiftActivityFooter">
 
     <Button
       android:id="@+id/change"
@@ -48,4 +49,10 @@
       android:background="?attr/hs__selectableItemBackground"
       />
   </LinearLayout>
-</merge><!-- From: file:/Users/rhishikeshjoshi/workspace/android/r2d2/HelpshiftLib/res/layout/hs__screenshot_preview.xml -->
+
+  <ImageView
+      android:id="@+id/hs__helpshiftActivityFooter"
+      android:layout_alignParentBottom="true"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+</merge><!-- From: file:/Users/danielvictor/work/android/r2d2/Helpshift/src/main/res/layout/hs__screenshot_preview.xml -->
