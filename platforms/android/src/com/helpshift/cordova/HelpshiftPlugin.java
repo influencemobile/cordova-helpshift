@@ -65,7 +65,8 @@ public class HelpshiftPlugin extends CordovaPlugin {
                         map.put(key,value);
                     }
                 }
-                Helpshift.install (cordova.getActivity().getApplication(), apiKey, domainName, appID, map);
+                Log.d(TAG, "Helpshift.install for "+ domainName);
+                Helpshift.install(cordova.getActivity().getApplication(), apiKey, domainName, appID, map);
                 callbackContext.sendPluginResult( new PluginResult(PluginResult.Status.OK, ""));
                 return true;
             }
