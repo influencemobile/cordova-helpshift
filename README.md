@@ -8,6 +8,10 @@ Cordova plugin API for fully automated installation.
 
 	cordova plugin add https://github.com/affinityis/cordova-helpshift.git
 
+## Requirements
+
+* Android project target 21 or above
+
 ## Usage
 
 Run the init method when starting up your app:
