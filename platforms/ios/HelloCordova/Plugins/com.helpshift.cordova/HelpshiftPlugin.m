@@ -39,22 +39,23 @@
     NSString *appId = [command.arguments objectAtIndex:2];
     NSMutableDictionary *optionsDict = nil;
     if ([command.arguments count] > 3) {
-        optionsDict = [[command.arguments objectAtIndex:3 withDefault:nil] mutableCopy];
+        optionsDict = [[command argumentAtIndex:3] mutableCopy];
     }
     if (!optionsDict) {
         optionsDict = [[NSMutableDictionary alloc] init];
     }
     [optionsDict setObject:@"phonegap" forKey:@"sdkType"];
     [Helpshift installForApiKey:apiKey domainName:domainName appID:appId withOptions:optionsDict];
-    // [Helpshift handleBecomeActiveNotification];
+    // NSLog(@" Helpshift: %@, %@, %@, %@", apiKey, domainName, appId, optionsDict);
     [[Helpshift sharedInstance] setDelegate:self];
 }
 
-- (void) showFAQs:(CDVInvokedUrlCommand *)command
+- (void)showFAQs:(CDVInvokedUrlCommand *)command
 {
     NSDictionary *optionsDict = nil;
-    if ([command.arguments count] > 0)
-        optionsDict = [command.arguments objectAtIndex:0 withDefault:nil];
+    if ([command.arguments count] > 0) {
+        optionsDict = [command argumentAtIndex:0];
+    }
     if (optionsDict) {
         [[Helpshift sharedInstance] showFAQs:self.viewController withOptions:optionsDict];
     } else {
@@ -65,8 +66,9 @@
 - (void)showConversation:(CDVInvokedUrlCommand *)command
 {
     NSDictionary *optionsDict = nil;
-    if ([command.arguments count] > 0)
-        optionsDict = [command.arguments objectAtIndex:0 withDefault:nil];
+    if ([command.arguments count] > 0) {
+        optionsDict = [command argumentAtIndex:0];
+    }
     if (optionsDict) {
         [[Helpshift sharedInstance] showConversation:self.viewController withOptions:optionsDict];
     } else {
@@ -78,8 +80,9 @@
 {
     NSDictionary *optionsDict = nil;
     NSString *faqPublishId = [command.arguments objectAtIndex:0];
-    if ([command.arguments count] > 1)
-        optionsDict = [command.arguments objectAtIndex:1 withDefault:nil];
+    if ([command.arguments count] > 1) {
+        optionsDict = [command argumentAtIndex:1];
+    }
     if (optionsDict) {
         [[Helpshift sharedInstance] showSingleFAQ:faqPublishId withController:self.viewController withOptions:optionsDict];
     } else {
@@ -91,8 +94,9 @@
 {
     NSString *faqSectionPublishId = [command.arguments objectAtIndex:0];
     NSDictionary *optionsDict = nil;
-    if ([command.arguments count] > 1)
-        optionsDict = [command.arguments objectAtIndex:1 withDefault:nil];
+    if ([command.arguments count] > 1) {
+        optionsDict = [command argumentAtIndex:1];
+    }
     if (optionsDict) {
         [[Helpshift sharedInstance] showFAQSection:faqSectionPublishId withController:self.viewController withOptions:optionsDict];
     } else {
@@ -128,7 +132,7 @@
 
 - (void)getNotificationCountFromRemote:(CDVInvokedUrlCommand *)command
 {
-    BOOL isAsync = [[command.arguments objectAtIndex:0 withDefault:[NSNumber numberWithBool:NO]] boolValue];
+    BOOL isAsync = [[command argumentAtIndex:0] boolValue];
     if (isAsync) {
         [[Helpshift sharedInstance] getNotificationCountFromRemote:YES];
     } else {
@@ -141,7 +145,7 @@
 
 - (void)registerDeviceToken:(CDVInvokedUrlCommand *)command
 {
-    NSString *tokenStr = [command.arguments objectAtIndex:0 withDefault:nil];
+    NSString *tokenStr = [command argumentAtIndex:0];
     if (tokenStr) {
         NSData *deviceToken = [self bytesFromHexString:tokenStr];
         [[Helpshift sharedInstance] registerDeviceToken:deviceToken];
@@ -150,7 +154,7 @@
 
 - (void)handleRemoteNotification:(CDVInvokedUrlCommand *)command
 {
-    NSDictionary *notification = [command.arguments objectAtIndex:0 withDefault:nil];
+    NSDictionary *notification = [command argumentAtIndex:0];
     if (notification) {
         [[Helpshift sharedInstance] handleRemoteNotification:notification withController:self.viewController];
     }
@@ -158,7 +162,7 @@
 
 - (void)handleLocalNotification:(CDVInvokedUrlCommand *)command
 {
-    NSString *issueID = [command.arguments objectAtIndex:0 withDefault:nil];
+    NSString *issueID = [command argumentAtIndex:0];
     if (issueID) {
         UILocalNotification *notif = [[UILocalNotification alloc] init];
         notif.userInfo = @{@"issue_id" : issueID};
@@ -189,7 +193,7 @@
 
 - (void)showAlertToRateAppWithURL:(CDVInvokedUrlCommand *)command
 {
-    NSString *urlString = [command.arguments objectAtIndex:0 withDefault:nil];
+    NSString *urlString = [command argumentAtIndex:0];
     [Helpshift showAlertToRateAppWithURL:urlString withCompletionBlock:^(HSAlertToRateAppAction action) {
         NSString *rateAppAction = @"";
         switch(action) {
@@ -214,7 +218,7 @@
 
 - (void)pauseDisplayOfInAppNotification:(CDVInvokedUrlCommand *)command
 {
-    BOOL flag = [command.arguments objectAtIndex:0 withDefault:false];
+    BOOL flag = [[command argumentAtIndex:0] boolValue];
     [Helpshift pauseDisplayOfInAppNotification:flag];
 }
 
