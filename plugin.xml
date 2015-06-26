@@ -70,10 +70,36 @@
             </feature>
         </config-file>
 
-        <header-file src="platforms/ios/HelloCordova/Plugins/com.helpshift.cordova/HelpshiftPlugin.h" />
         <source-file src="platforms/ios/HelloCordova/Plugins/com.helpshift.cordova/HelpshiftPlugin.m" />
+        <header-file src="platforms/ios/HelloCordova/Plugins/com.helpshift.cordova/HelpshiftPlugin.h" />
 
-        <!-- Helpshift frameworks -->
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-Attachment.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-Attachment@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-camera-button.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-camera-button@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-delete-button.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-delete-button@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-no-connection.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-no-connection@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-powered-by-logo.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-powered-by-logo@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-screenshot-error.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HS-screenshot-error@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSChatBubbleBlue.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSChatBubbleBlue@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSChatBubbleWhite.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSChatBubbleWhite@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSConfirmBox.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSConfirmBox@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSTutorial.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSTutorial@2.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSTutorialiPad.png" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSResources/HSTutorialiPad@2.png" />
+
+        <resource-file src="platforms/ios/HelpshiftLib/HSThemes/HelpshiftConfig.plist" />
+        <resource-file src="platforms/ios/HelpshiftLib/HSThemes/HelpshiftConfigDark.plist" />
+
+        <!-- Helpshift framework -->
         <header-file src="platforms/ios/HelpshiftLib/Helpshift.h" />
         <source-file src="platforms/ios/HelpshiftLib/libHelpshift.a" compiler-flags="-lHelpshiftLib" framework="true" />
 
